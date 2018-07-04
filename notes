@@ -1,0 +1,37 @@
+1. Pointers/Adresses
+  use Asterisk * to create pointer of a type:
+    int iVal = 1;
+    int* pVal;
+  use Ampersand & to get the adress of a variable;
+    pVal = &Val;      //now pVal stores the physical Adress of iVal and therefore points to it's content
+  in functions/methods:
+    void manipulateInt(int* pValue)
+    {
+      *pValue = 2;    //dereferencing the value with *<variableName>; otherwise we would change the adress
+    }
+    // in main (...)
+    // currently iVal = 1
+    manipulateInt(&iVal);   // use Ampersand to pass the adress, as the functions argument is a pointer
+    // now iVal = 2
+    
+1.1 Pointers and Arrays
+    string texts[] = {"one", "two", "three"};
+  pointers can directly be assigned to array variables:
+    string *pTexts = texts;
+  when used in loops, the pointer can be incremented to point to the next entry in the array
+    for(int i = 0; i < sizeof(texts)/sizeof(string); i++, pTexts++)   
+    // we can put the pointer increment inside the 3rd for-loop block; we can also write pTexts+=1;
+    {
+      cout << *pTexts << flush;     // output: "one two three"
+    }
+  pointers to single array elements are created with the Ampersand
+    string *pElements = &texts;     // automatically pointing to first element: same as &texts[0]; also: [] executed before &
+    
+1.2 Char and Arrays
+  char stores a single character. An array of char is similar to a string ("primitive string"):
+    char text[] = {'h', 'e', 'l', 'l', 'o'};    // you could also write: char text[] = "hello";
+  A char array also gets addended a null-Terminator, so it's one byte/character longer
+  You can check for the terminator by comparing it to 0, eg. in loops:
+    if(text[i] == 0) 
+      break;
+  
