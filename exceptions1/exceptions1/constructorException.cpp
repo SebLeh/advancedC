@@ -12,7 +12,7 @@ class MightGoWrong {
 	}
 };
 
-int ConstructorMain() {
+int main() {
 
 	try {
 		MightGoWrong wrong();
@@ -21,6 +21,14 @@ int ConstructorMain() {
 	{
 		cout << e.what() << endl;
 	}
+
+	int iVal = 8;
+	int* pVal;
+	pVal = &iVal;
+
+	cout << *pVal << endl;
+	cout << pVal << endl;
+	cout << &iVal << endl;
 
 	return 0;
 }
